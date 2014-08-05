@@ -1,6 +1,6 @@
 {
   "name": "webpack-cordova-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Mark Marijnissen"
   },
@@ -23,5 +23,8 @@
     "mkdirp": "^0.5.0",
     "optimist": "^0.6.1",
     "replace": "^0.2.9"
+  },
+  "peerDependencies":{
+    "script-loader":"*"
   }
 }
