@@ -1,0 +1,27 @@
+{
+  "name": "webpack-cordova-plugin",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mark Marijnissen"
+  },
+  "description": "webpack output to a cordova project",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:markmarijnissen/webpack-cordova-plugin.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/markmarijnissenwebpack-cordova-plugin/issues"
+  },
+  "homepage": "https://github.com/markmarijnissen/webpack-cordova-plugin",
+  "dependencies": {
+    "mkdirp": "^0.5.0",
+    "optimist": "^0.6.1",
+    "replace": "^0.2.9"
+  }
+}
