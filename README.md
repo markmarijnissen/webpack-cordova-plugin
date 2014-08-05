@@ -63,4 +63,8 @@ In order for Cordova to load correctly, your `index.html` must explictly refer t
 
 ## Changelog
 
+#### 0.1.1 (05/08/2014)
+
+* Added `script-loader` as peer dependency.
+
 #### 0.1.0 (05/08/2014)
