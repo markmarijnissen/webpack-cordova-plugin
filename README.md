@@ -35,7 +35,7 @@ new CordovaPlugin({
    cordova run ios
    ```
 
-## webpack-dev-server
+## Load Cordova
 
 In order for Cordova to load correctly, your `index.html` must explictly refer to the `cordova.js` script.
 
