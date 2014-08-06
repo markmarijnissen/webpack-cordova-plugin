@@ -54,6 +54,7 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
     if(!fs.existsSync(config)){ // sorry for the sync funcion! better ideas are welcome.
       fs.writeFileSync(config, fs.readFileSync(path.join(__dirname,'default-cordova-config.xml')));
       mkdirp(path.normalize(path.join(config,'..','plugins'))); // required cordova dir
+      mkdirp(path.normalize(path.join(config,'..','www'))); // required cordova dir
     }
 
     /**

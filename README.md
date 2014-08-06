@@ -63,6 +63,10 @@ In order for Cordova to load correctly, your `index.html` must explictly refer t
 
 ## Changelog
 
+#### 0.1.2 (06/08/2014)
+
+* added `www` as required cordova directory
+
 #### 0.1.1 (05/08/2014)
 
 * Added `script-loader` as peer dependency.
