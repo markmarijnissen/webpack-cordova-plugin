@@ -15,7 +15,7 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
      */
     var argv = require('optimist')
       .string('cordova')
-      //.string('platform')
+      .string('platform')
       .string('cordova-config')
       .string('cordova-version')
       .argv;
@@ -24,10 +24,10 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
     /**
      * initialize all values: src, config, platform, version
      */
-    var context = this.options.context || compiler.options.context || process.cwd();
+    var cwd = process.cwd();
     var src = argv['cordova'] || this.options.src || "index.html";
-    var config = path.join(context,argv['cordova-config'] || this.options.config || "config.xml");
-    //var platform = argv['platform'] || this.options.platform;
+    var config = path.join(cwd,argv['cordova-config'] || this.options.config || "config.xml");
+    var platform = argv['platform'] || this.options.platform;
     var version = argv['cordova-version'] || this.options.version;
 
     /**
@@ -100,14 +100,12 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
       }
     }
 
+
     /**
      * Set correct --content-base for webpack-dev-server
-     *
-     * Warning! Not yet supported, see https://github.com/webpack/webpack-dev-server/pull/41
      */
-    /*
-    var iosPath = path.join(context,'platforms','ios','www');
-    var androidPath = path.join(context,'platforms','android','assets','www');
+    var iosPath = path.join(cwd,'platforms','ios','www');
+    var androidPath = path.join(cwd,'platforms','android','assets','www');
 
     if(platform === "ios" || (platform === undefined && fs.existsSync(iosPath))){
       if(!compiler.options.devServer) compiler.options.devServer = {};
@@ -116,7 +114,7 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
       if(!compiler.options.devServer) compiler.options.devServer = {};
       compiler.options.devServer.contentBase = androidPath;
     }
-    */
+
 };
 
 module.exports = WebpackCordovaPlugin;

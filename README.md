@@ -9,6 +9,7 @@ var CordovaPlugin = require('webpack-cordova-plugin');
 new CordovaPlugin({
   config: 'config.xml',  // Location of Cordova' config.xml (will be created if not found)
   src: 'index.html',     // Set entry-point of cordova in config.xml
+  platform: 'ios', (or 'android') // Set `webpack-dev-server` to correct `contentBase` to use Cordova plugins.
   version: true,         // Set config.xml' version. (true = use version from package.json)
 });
 ```
@@ -49,19 +50,20 @@ In order for Cordova to load correctly, your `index.html` must explictly refer t
     <script type="text/javascript" src="cordova.js"></script>
     ```
 
-3. Set the correct `--content-base`:
-    
-    * for ios: `webpack-dev-server --content-base=platforms/ios/www`
-    * for android: `webpack-dev-server --content-base=platforms/android/assets/www`
-
 ## Under the hood
 
 * `--output-path` is set to the correct `www` directory.
 * `cordova.js` is declared as external.
 * `cordova.js` is loaded as script.
 * `config.xml` is updated (version and entry-point)
+* `--content-base` is updated to the correct platform (e.g. `/platforms/android/assets/www`)
 
 ## Changelog
+
+#### 0.1.3 (31/10/2014)
+
+* Enabled `platform` configuration and commandline option to set correct content base of dev server.
+* Cordova is installed in `process.cwd()` rather than the `context`.
 
 #### 0.1.2 (06/08/2014)
 
