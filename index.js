@@ -82,7 +82,7 @@ WebpackCordovaPlugin.prototype.apply  = function(compiler){
       // "true" defaults to package.json version
       if(version === true){
         try {
-          var packageJsonPath = require.resolve('./package.json');
+          var packageJsonPath = path.resolve(cwd, 'package.json');
           version = require(packageJsonPath).version;
         } catch(err){
           console.error('ERROR webpack-cordova-plugin: Could not read version from package.json'+config,err.code);
